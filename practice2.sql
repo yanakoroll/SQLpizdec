@@ -18,6 +18,10 @@ CREATE TABLE parents (
   CHECK (sex IN ('м', 'ж'))
 );
 
+
+--- Таблица с составным первичным ключом, внешним ключом и двумя правилами проверки значения атрибутов. 
+--- Заполнить таблицу данными!!!
+
 CREATE TABLE teachers (
   teachnum INT, 
   subject VARCHAR(50),
@@ -28,3 +32,7 @@ CREATE TABLE teachers (
   CHECK (category IN ('first', 'primary')),
   
 ); 
+
+
+--- Заполнить таблицы данными 
+--- Придумать 10 запросов с оператором SELECT
