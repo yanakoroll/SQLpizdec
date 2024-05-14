@@ -29,10 +29,25 @@ CREATE TABLE teachers (
   snum INT REFERENCES schools,
   teachname VARCHAR(50) NOT NULL,
   category VARCHAR(7),
-  CHECK (category IN ('first', 'primary')),
-  
+  CHECK (category IN ('первая', 'высшая')),
+  salary NUMBER(10,1)
 ); 
 
-
 --- Заполнить таблицы данными 
+
+
 --- Придумать 10 запросов с оператором SELECT
+
+SELECT teachname 
+FROM teachers
+WHERE subject LIKE '%математика%'
+
+SELECT teachname, salary 
+FROM teachers
+WHERE category LIKE '%высшая%'
+ORDER BY salary DESC
+
+SELECT pupname
+FROM pupils
+WHERE snum == 111
+
