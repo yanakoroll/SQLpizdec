@@ -23,20 +23,19 @@ CREATE TABLE parents (
 --- Заполнить таблицу данными!!!
 
 CREATE TABLE teachers (
-  teachnum INT, 
   subject VARCHAR(50),
-  PRIMARY KEY (teachnum, subject),
   snum INT REFERENCES schools,
+  PRIMARY KEY (snum, subject),
   teachname VARCHAR(50) NOT NULL,
   category VARCHAR(7),
   CHECK (category IN ('первая', 'высшая')),
   salary NUMBER(10,1)
 ); 
 
---- Заполнить таблицы данными 
+--- Заполнить таблицы данными (Миша, на тебе)
 
 
---- Придумать 10 запросов с оператором SELECT
+--- Придумать 10 запросов с оператором SELECT (осталось 7)
 
 SELECT teachname 
 FROM teachers
