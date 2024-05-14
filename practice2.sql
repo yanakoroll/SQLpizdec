@@ -26,7 +26,7 @@ CREATE TABLE teachers (
   teachnum INT, 
   subject VARCHAR(50),
   PRIMARY KEY (teachnum, subject),
-  snum INT REFERENCES school,
+  snum INT REFERENCES schools,
   teachname VARCHAR(50) NOT NULL,
   category VARCHAR(7),
   CHECK (category IN ('first', 'primary')),
