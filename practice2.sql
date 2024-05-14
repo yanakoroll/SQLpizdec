@@ -17,3 +17,14 @@ CREATE TABLE parents (
   sex CHAR(1), 
   CHECK (sex IN ('м', 'ж'))
 );
+
+CREATE TABLE teachers (
+  teachnum INT, 
+  subject VARCHAR(50),
+  PRIMARY KEY (teachnum, subject),
+  snum INT REFERENCES school,
+  teachname VARCHAR(50) NOT NULL,
+  category VARCHAR(7),
+  CHECK (category IN ('first', 'primary')),
+  
+); 
