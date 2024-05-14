@@ -1,4 +1,4 @@
-CREATE TABLE school (
+CREATE TABLE schools (
   snum INT PRIMARY KEY, 
   sname VARCHAR(20), 
 );
