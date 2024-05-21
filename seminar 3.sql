@@ -105,46 +105,73 @@ select * from depart2;
 select * from children;
 
 Задания
+
 1) Сколько сотрудников в базе данных?
+  
 SELECT COUNT(*) AS Количество_сотрудников FROM employees;
+
 2) Выведите минимальную и максимальную зарплаты по сотрудникам.
+  
 SELECT MIN(salary), MAX(salary) FROM employees;
+
 3) Выведите среднюю зарплату у сотрудников 5-го отдела.
+  
 SELECT AVG(salary) FROM employees
 WHERE depno = 5;
+
 4) Выведите средние заработные платы по каждому отделу.
+  
 SELECT AVG(salary) FROM employees
 GROUP BY(depno);
+
 5) Сколько сотрудников в каждом отделе?
+  
 SELECT depno, COUNT(*) FROM employees
 GROUP BY depno;
+
 6) Выведите названия отделов, в которых работают более 3-х сотрудников.
+  
 SELECT DISTINCT d.name
 FROM employees e NATURAL JOIN depart d
 GROUP BY(d.name)
 HAVING COUNT(*)>3;
+
 7) Выведите таблицу с двумя колонками. В первой колонке ФИО сотрудника, а во второй имя его ребенка.
+  
 SELECT e.ename, c.name
 FROM employees e JOIN children c
 ON e.tabnum = c.tabnum;
+
 8) Выведите таблицу с двумя колонками. В первой колонке ФИО сотрудника, а во второй количество детей, по которым есть информация в базе данных.
+
 SELECT e.ename, COUNT(c.name)
 FROM employees e JOIN children c
 ON e.tabnum = c.tabnum
 GROUP BY (e.ename);
+
 9) Соедините таблицы «Отделы» и «Отделы2» на основе декартова произведения таблиц.
+  
 SELECT *
 FROM depart CROSS JOIN depart2;
+
 10) Соедините таблицы «Отделы» и «Сотрудники» по совпадающим полям.
 SELECT DISTINCT *
 FROM employees e NATURAL JOIN depart d;
+
 11) Объедините в одну таблицу данные из таблиц «Отделы» и «Отделы2» без дублирования одинаковых записей.
+  
 SELECT * FROM depart UNION SELECT * FROM depart2;
+
 12) Отобразите названия отделов, которые есть в таблице «Отделы», но отсутствуют в таблице «Отделы2».
+  
 SELECT * FROM depart MINUS SELECT * FROM depart2;
+
 13) Отобразите названия отделов, которые есть и в таблице «Отделы» и в таблице «Отделы2»
+  
 SELECT * FROM depart INTERSECT SELECT * FROM depart2;
+
 14) Отобразите в одной таблице информацию из таблиц «Отделы» и «Сотрудники». Если в отделе нет сотрудников, то информация о нем отображается в таблице, а в столбцах про сотрудников стоят пропуски (null). Если у сотрудника отсутствует информация об отделе, в котором он работает, то сотрудник не отображается в таблице.
+
 SELECT * FROM depart LEFT JOIN employees
 ON depart.depno = employees.depno;
 15) Отобразите в одной таблице информацию из таблиц «Отделы» и «Сотрудники». Если у сотрудника отсутствует информация об отделе, в котором он работает, то информация об этом сотруднике отображается в таблице, а в столбцах, содержащих данные об отделах, стоят пропуски (null). Если в отделе отсутствуют сотрудники, то информация о нем не отображается в таблице.
